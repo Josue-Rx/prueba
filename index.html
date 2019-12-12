@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="en" ng-app="promesasApp" ng-controller="serviceCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba</title>
+
+	<!--Incluir Scripts-->
+	<script src="js/lib/angular.min.js"></script>
+	<script src="angular/app.js"></script>
+	<script src="angular/controller.js"></script>
+	<script src="angular/servicios.js"></script>
+
+	<!--Incluir Bootstrap y CSS-->
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontAwesome/css/all.min.css">
+ 
+</head>
+<body>
+	<div class="container">
+
+    <h2>Mis ordenes de Compra</h2>
+
+        <div class="row">  
+
+        <div class="uno">
+            <br>
+            <div class="col-xs-2">
+            <select ng-model="busqueda.proposal.approved" class="form-control" flex="30">
+                    <option value="">Todo</option>
+                    <option value="Null">Pendientes</option>
+                    <option value="1">Aprobado</option>  
+                    <option value="0">Cancelada</option>
+                </select>
+            </div>
+            
+             <div class="col-xs-3">
+                <input type="text" placeholder="Buscar Orden" class="form-control" ng-model= busqueda.folio>
+             </div>   
+        </div> 
+		     
+        <br>
+            <table width="100%">
+                <tr>
+                    <th height="50px" width="50px">Order</th>
+                    <th><span ng-click="orden='created_at'; reverse = !reverse;" class="cursor">Created</span></th>
+                    <th>Status</a></th>
+                    <th>Requester</th>
+                    <th>Vendor</th>
+                    <th>Total</th>    
+                </tr>
+
+                <tr ng-repeat="indice in servicios.array.data  | orderBy:orden:reverse | filter:busqueda">  
+                  
+                    <td height="50px" width="50px"> <a href="#">#{{indice.folio}}</a></td>
+                    <td> {{indice.account.created_at | format | date:'dd/MM/yyyy' }} </td>
+                    <td ng-if="indice.proposal.approved == null" class="pending">Pending</td>
+                    <td ng-if="indice.proposal.approved == 1" class="approved">Approved</td>
+                    <td ng-if="indice.proposal.approved == 0" class="rejected">Rejected</td>
+                    
+                    <td> {{indice.account.user.first_name}}  {{indice.account.user.last_name}} </td>
+                    <td> {{indice.proposal.provider.name}} </td>
+                    <td> {{indice.proposal.total}} {{indice.budget.currency}} </td>
+               
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+
+    <br>
+
+</body>
+</html> 

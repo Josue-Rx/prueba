@@ -1,0 +1,63 @@
+body {
+  padding-top: 50px;
+  background: #F6F6F6;
+  font-size: 14px;
+  background: #F0F0F0;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.uno {
+	background: #fff;
+	height: 80px;
+}
+
+table {
+	border-spacing: 15px 10px; 	
+	text-align: center;
+	
+}
+
+table th {
+	text-align: center;
+	background: #EBE8E8;
+}
+
+table td {
+	text-align: center;
+}
+
+.pending {
+	background:#F7D266; 
+	color: #fff;
+	border-radius: 50px; 
+	width:90px;
+	display: block;
+	padding: 5px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.approved {
+	background:#1BA2FA;
+	color: #fff; 
+	border-radius: 50px; 
+	width:90px;
+	display: block;
+	padding: 5px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.rejected {
+	background:#F78066;
+	color: #fff; 
+	border-radius: 50px; 
+	width:90px;
+	display: block;
+	padding: 5px;
+	margin: auto;
+	margin-top: 10px;
+}
